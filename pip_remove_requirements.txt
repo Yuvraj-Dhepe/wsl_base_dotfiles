@@ -1,0 +1,5 @@
+#pip_install_requirements.txt
+torchvision==0.13
+fastai -c fastchan
+jupyterlab
+voila

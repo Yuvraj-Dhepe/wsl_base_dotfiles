@@ -1,4 +1,12 @@
-#/bin/bash
+#!(which bash)
+
+# Update the system
+{
+echo "Checking for system updates..."
+sudo apt-get update
+sudo apt-get upgrade -y
+#sudo apt full-upgrade -y
+}
 
 # install nix
 curl -L https://nixos.org/nix/install | sh
@@ -34,9 +42,10 @@ nix-env -iA nixpkgs.gnumake
 }
 
 # stow 
-stow git
+#stow git
 stow zsh
 stow nvim
+stow p10k
 #stow vscode
 
 # add zsh to valid login shells
@@ -48,6 +57,11 @@ sudo chsh -s $(which zsh) $USER
 # bundle zsh plugins
 {
 antibody bundle < ~/.zsh_plugins.txt > ~/.zsh_plugins.sh
+}
+
+# install neovim plugins
+{
+nvim --headless +PlugInstall +qall
 }
 
 # reformat the zshrc file with necessary inputs.
@@ -95,22 +109,37 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 }
 
 #installing vscode and we are not stowing it, but maybe we can in the future, however remember that our installation location of vscode is different so accordingly
-# we have to put the files or folders inside the code {package in .dotfiles} folder. So if I am not wrong we have to have some path like: .dotfiles/code/downloads/installed/vscode/{all the dotfiles and folders}
-if ! command -v code &> /dev/null; then
+
+{ # we have to put the files or folders inside the code {package in .dotfiles} folder. So if I am not wrong we have to have some path like: .dotfiles/code/downloads/installed/vscode/{all the dotfiles and folders}
+# To use Visual Studio Code with the Windows Subsystem for Linux, please install Visual Studio Code in Windows and uninstall the Linux version in WSL. You can then use the `code` command in a WSL terminal just as you would in a normal command prompt.
+# if ! command -v code &> /dev/null; then
 	
-	# Make a dir to install vscode
-	mkdir -p ~/downloads/installed/vscode
+	# # Make a dir to install vscode
+	# mkdir -p ~/downloads/installed/vscode
+
+	# # Download the latest version of Miniconda for Linux
+	# if [ ! -f ~/downloads/setups/vscode_amd64.deb ]; then
+		# echo "-------------------------------------------"
+		# echo "Code Setup Not Found Downloading..."
+		# echo "-------------------------------------------"
+		# wget -P ~/downloads/setups https://go.microsoft.com/fwlink/?LinkID=760868 -O ~/downloads/setups/vscode_amd64.deb 
+	# fi
 	
-	# Download Vs Code 
-    wget -P ~/downloads/setups https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64 -O vscode_amd64.deb
+	# # Install VsCode
+	# sudo apt install ~/downloads/setups/vscode_amd64.deb 
+	
+	# # Reload the zshrc file.
     
-	# Install VsCode
-	sudo dpkg -i ~/downloads/setups/vscode_amd64.deb -R $HOME/downloads/installed/vscode
+	# zsh ~/.zshrc
+	# zsh -i -c "omz reload"
 	
-	# Reload the zshrc file.
-    omz reload
-	source ~/.zshrc
-fi
+# else
+	# echo "-------------------------------------------"
+    # echo "VsCode already has been installed"
+	# echo "-------------------------------------------"
+	# code --version
+# fi
+}
 
 # Installing files from the conda script
-zsh $HOME/.dotfiles/conda_install.sh
+zsh $HOME/.dotfiles/conda_install_script.sh

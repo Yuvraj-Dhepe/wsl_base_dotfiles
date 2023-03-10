@@ -10,16 +10,8 @@ fi
 #Theme setup
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# source plugins
+# source plugins #this installs all the plugins and even the theme.
 source ~/.zsh_plugins.sh
-
-
-# aliases
-#alias ls='ls -l'
-
-
-# Use Nix
-if [ -e /home/yuvidh/.nix-profile/etc/profile.d/nix.sh ]; then . /home/yuvidh/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -36,7 +28,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -123,14 +115,13 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
+
 # Example aliases
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim='nvim'
-alias ls='ls -la'
+alias ls='ls -lha'
 
-if [ -e /home/yuvidh/.nix-profile/etc/profile.d/nix.sh ]; then . /home/yuvidh/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 # export PATH="$HOME/miniconda/bin:$PATH"  # commented out by conda initialize
 
 # >>> conda initialize >>>
@@ -148,3 +139,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Use Nix
+if [ -e /home/yuvidh/.nix-profile/etc/profile.d/nix.sh ]; then . /home/yuvidh/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

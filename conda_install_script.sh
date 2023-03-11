@@ -45,7 +45,7 @@ if ! command_exists conda; then
 	bash ~/downloads/setups/Miniconda3-X86_64.sh
 
 	echo "-------------------------------------------"
-	echo "Initializing the conda environment"
+	echo "Initializing the conda environment, press yes only..."
 	echo "-------------------------------------------"
 	eval "$(/home/yuvraj_dh/downloads/installed/miniconda3/bin/conda shell.zsh hook)"
 	conda init

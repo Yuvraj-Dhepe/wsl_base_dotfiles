@@ -1,0 +1,31 @@
+- To do:
+1) Remember zshrc is already configured to use extensions via the antibody extensions file.
+2) Install proper cuda for support of torch and torchvision
+{
+1) For cuda, we need to install toolkit even if the GPU driver is installed.
+ref: https://docs.nvidia.com/cuda/wsl-user-guide/index.html#getting-started-with-cuda-on-wsl
+ref: https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local
+ref: https://linuxconfig.org/how-to-install-cuda-on-ubuntu-20-04-focal-fossa-linux
+https://linuxhint.com/install-cuda-ubuntu-2004/
+2) Once those installations are done, also download the cuda toolkit. sudo apt install nvidia-cuda-toolkit.
+3) Download toolkit for windows as well and install it along with the gameforce driver.
+}
+-- try this: pip install torch torchvision torchaudio --no-index --find-links https://download.pytorch.org/whl/cu115/torch_stable.html for the timebeing.
+
+
+
+
+
+
+# Notes for Creating the reproducible env.
+1) OMZ commands can be ran with:
+$(which zsh) -i -c "omz reload" 
+reference: https://stackoverflow.com/questions/74715205/oh-my-zsh-how-to-run-multiple-omz-commands
+
+
+# Good Program list for Ubuntu
+tldr, pandoc
+
+# Good Programs for ML
+tqdm
+

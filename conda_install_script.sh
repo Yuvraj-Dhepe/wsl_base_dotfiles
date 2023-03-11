@@ -1,9 +1,13 @@
 #!$(which zsh)
-#$HOME/.nix-profile/bin/zsh
 
+#read -p "Are you running script via zsh? [y/n]: " cn
+
+
+#if [ "$cn" = "y" ] || [ "$cn" = "Y" ]; then
+	
 # Function to check if a command is installed
 command_exists () {
-    command -v "$1" &> /dev/null
+	command -v "$1" &> /dev/null
 }
 
 # Update the system
@@ -17,8 +21,8 @@ sudo apt-get upgrade -y
 # Install wget if it is not already installed
 {
 if ! command_exists wget; then
-    echo "wget not found. Installing..."
-    sudo apt-get install -y wget
+	echo "wget not found. Installing..."
+	sudo apt-get install -y wget
 fi
 }
 
@@ -37,13 +41,14 @@ if ! command_exists conda; then
 	echo "-------------------------------------------"
 	echo "Installing Conda...(set the install location to ~/downloads/installed/miniconda3)"
 	echo "-------------------------------------------"
-    # Run the installation script and set the install location to ~/downloads/installed/miniconda3
-    bash ~/downloads/setups/Miniconda3-X86_64.sh
+	# Run the installation script and set the install location to ~/downloads/installed/miniconda3
+	bash ~/downloads/setups/Miniconda3-X86_64.sh
 
 	echo "-------------------------------------------"
 	echo "Initializing the conda environment"
 	echo "-------------------------------------------"
-	conda init zsh
+	eval "$(/home/yuvraj_dh/downloads/installed/miniconda3/bin/conda shell.zsh hook)"
+	conda init
 	
 	#echo "Initializing the conda environment, Refreshing the omz shell, .zshrc file and activating the base environment."	
 	echo "-------------------------------------------"
@@ -53,12 +58,12 @@ if ! command_exists conda; then
 	echo "-------------------------------------------"
 	echo "Conda Installed successfully with version: "
 	echo "-------------------------------------------"
-    conda --version
+	conda --version
 	
 	echo "-------------------------------------------"
 	echo "Conda Env's "
 	echo "-------------------------------------------"
-    conda env list
+	conda env list
 	
 	# nohup bash $HOME/side_projects/omz_reload.sh > /dev/null 2>&1 &
 	#zsh $HOME/.zshrc
@@ -88,8 +93,13 @@ if ! command_exists conda; then
 	
 else
 	echo "-------------------------------------------"
-    echo "conda already installed"
+	echo "conda already installed"
 	echo "-------------------------------------------"
 	conda --version
 fi
 }
+
+# else
+    # echo "Run script with zsh conda_install_script.sh"
+    # exit 1
+# fi

@@ -116,7 +116,7 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 
 #installing vscode and we are not stowing it, but maybe we can in the future, however remember that our installation location of vscode is different so accordingly
 
-{ # we have to put the files or folders inside the code {package in .dotfiles} folder. So if I am not wrong we have to have some path like: .dotfiles/code/downloads/installed/vscode/{all the dotfiles and folders}
+ # we have to put the files or folders inside the code {package in .dotfiles} folder. So if I am not wrong we have to have some path like: .dotfiles/code/downloads/installed/vscode/{all the dotfiles and folders}
 # To use Visual Studio Code with the Windows Subsystem for Linux, please install Visual Studio Code in Windows and uninstall the Linux version in WSL. You can then use the `code` command in a WSL terminal just as you would in a normal command prompt.
 # if ! command -v code &> /dev/null; then
 	
@@ -145,7 +145,8 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 	# echo "-------------------------------------------"
 	# code --version
 # fi
-}
+
+p10k configure
 
 # Installing files from the conda script
 zsh $HOME/.dotfiles/conda_install_script.sh

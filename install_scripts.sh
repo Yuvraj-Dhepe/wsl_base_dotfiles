@@ -79,10 +79,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # source plugins
 source ~/.zsh_plugins.sh
 
-
-# aliases
-alias ls="ls -la"
-
 # Use Nix
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
@@ -97,6 +93,16 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 {
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc 
 }
+
+# install the powerlevel10k theme properly.
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k 
+
+# Export ZSH_THEME variable not required as we are already copying it. we just need to simply have it's folder.
+# echo 'ZSH_THEME="powerlevel10k/powerlevel10k"' >> ~/.zshrc
+
+# Reload the zsh configuration
+zsh ~/.zshrc
+
 
 # install github client and we are not stowing it.
 {

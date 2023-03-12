@@ -46,7 +46,7 @@ nix-env -iA nixpkgs.gnumake
 stow zsh
 stow nvim
 stow p10k
-stow LS_COLORS
+stow lscolors
 #stow vscode
 
 # add zsh to valid login shells

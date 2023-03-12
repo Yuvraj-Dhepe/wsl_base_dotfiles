@@ -65,12 +65,13 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 	# code --version
 # fi
 
-p10k configure
+#p10k configure
 
-# Reloading the omz shell
-. $HOME/.dotfiles/omz_reload.sh
 
 echo "-------------------------------------------"
 echo "After OMZ Reload is done, Run Conda Install Script by following command"
 echo "zsh $HOME/.dotfiles/conda_install_script.sh"
 echo "-------------------------------------------"
+
+# Reloading the omz shell
+zsh $HOME/.dotfiles/omz_reload.sh

@@ -36,16 +36,17 @@ if [ "$response" = "y" ] || [ "$response" = "Y" ]; then
 	conda create -y -n $name pip==23.0.1
 	
 	echo "-------------------------------------------"
-	echo $name "has been installed successfully, run the env_creator file by giving address of pips requirements.txt file."
+	echo $name "has been installed successfully, run the env_package_installer file by giving address of pips requirements.txt file."
+	echo "sh $HOME/.dotfiles/env_package_installer.sh"
 	echo "-------------------------------------------"
 
 	echo "-------------------------------------------"
-	echo "Don't Forget to activate" $name "environment before running the env_creator file"
+	echo "Don't Forget to activate" $name "environment before running the env_package_installer file"
 	echo "-------------------------------------------"
 
 
 else
-    echo "Activate the base environment and restart the script"
+    echo "Activate the base environment and rerun the script"
     exit 1
 fi
 

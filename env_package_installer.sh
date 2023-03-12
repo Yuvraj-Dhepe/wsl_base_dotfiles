@@ -11,7 +11,7 @@ echo "-------------------------------------------"
 echo "installing packages in the fastai environment..."
 echo "-------------------------------------------"
 
-read -p "Give path to the requirements.txt file: ex. ~/pip_install.txt " path
+read -p "Give path to the requirements.txt file: ex. $HOME/.dotfiles/pip_install.txt " path
 
 #echo $path
 

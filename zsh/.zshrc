@@ -140,3 +140,4 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+if [ -e /home/yuvi_dh/.nix-profile/etc/profile.d/nix.sh ]; then . /home/yuvi_dh/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

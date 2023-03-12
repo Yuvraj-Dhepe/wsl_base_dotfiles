@@ -1,5 +1,5 @@
 #pip_install_requirements.txt
-pytorch
+torch
 fastai -c fastchan
 torchvision==0.13
 jupyterlab

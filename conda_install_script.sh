@@ -47,7 +47,7 @@ if ! command_exists conda; then
 	echo "-------------------------------------------"
 	echo "Initializing the conda environment, press yes only..."
 	echo "-------------------------------------------"
-	eval "$(/home/yuvraj_dh/downloads/installed/miniconda3/bin/conda shell.zsh hook)"
+	eval "$($HOME/downloads/installed/miniconda3/bin/conda shell.zsh hook)"
 	conda init
 	
 	#echo "Initializing the conda environment, Refreshing the omz shell, .zshrc file and activating the base environment."	
@@ -71,6 +71,15 @@ if ! command_exists conda; then
 	#bash $HOME/side_projects/omz_reload.sh 
 	#> /dev/null 2>&1 &
 	# The nohup command is used to run the script in the background and the > /dev/null 2>&1 & redirects all the output to the null device and detaches the script from the terminal so that your current script execution doesn't stop.
+	
+		
+	echo "-------------------------------------------"
+	echo "Install an env with following command"
+	echo "sh $HOME/.dotfiles/conda_env_create.sh"
+	echo "-------------------------------------------"
+	
+	
+	
 	zsh $HOME/.zshrc
 	$(which zsh) -i -c "omz reload"
 	
@@ -96,6 +105,11 @@ else
 	echo "conda already installed"
 	echo "-------------------------------------------"
 	conda --version
+	
+	echo "-------------------------------------------"
+	echo "Install an env with following command"
+	echo "sh $HOME/.dotfiles/conda_env_create.sh"
+	echo "-------------------------------------------"
 fi
 }
 

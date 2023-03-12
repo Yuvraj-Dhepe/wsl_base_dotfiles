@@ -11,6 +11,30 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # source plugins
 source ~/.zsh_plugins.sh
 
+# source LSCOLORS
+#git: https://github.com/trapd00r/LS_COLORS
+
+# Use Nix
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Supress message
+#POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+#Theme setup
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# source plugins
+source ~/.zsh_plugins.sh
+
 # Use Nix
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
@@ -122,22 +146,24 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="mate ~/.zshrc"
 alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim='nvim'
-alias ls='ls -lha'
+alias ls='ls -lha --color'
 
 # export PATH="$HOME/miniconda/bin:$PATH"  # commented out by conda initialize
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/yuvidh/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/yuvi_dh/downloads/installed/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/yuvidh/miniconda/etc/profile.d/conda.sh" ]; then
-        . "/home/yuvidh/miniconda/etc/profile.d/conda.sh"
+    if [ -f "/home/yuvi_dh/downloads/installed/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/yuvi_dh/downloads/installed/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/yuvidh/miniconda/bin:$PATH"
+        export PATH="/home/yuvi_dh/downloads/installed/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 if [ -e /home/yuvi_dh/.nix-profile/etc/profile.d/nix.sh ]; then . /home/yuvi_dh/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+source $HOME/LS_COLORS/lscolors.sh

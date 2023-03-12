@@ -8,7 +8,7 @@ conda list pip
 
 # install packages from a requirements file into the fastai environment
 echo "-------------------------------------------"
-echo "installing packages in the fastai environment..."
+echo "installing packages in the environment..."
 echo "-------------------------------------------"
 
 read -p "Give path to the requirements.txt file: ex. $HOME/.dotfiles/pip_install.txt " path

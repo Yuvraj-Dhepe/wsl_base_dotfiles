@@ -65,6 +65,47 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 	# code --version
 # fi
 
+
+# Installing Quarto
+if ! command -v quarto &> /dev/null; then
+
+	# make a directory to install quarto
+	mkdir -p ~/downloads/installed/quarto
+
+	# download the latest version of quarto for Linux
+	if [ ! -f ~/downloads/setups/quarto_1-2-335.deb ]; then
+		echo "-------------------------------------------"
+		echo "Quarto setup not found, downloading..."
+		echo "-------------------------------------------"
+		wget -O ~/downloads/setups/quarto_1-2-335.deb https://github.com/quarto-dev/quarto-cli/releases/download/v1.2.335/quarto-1.2.335-linux-amd64.deb
+	fi
+	
+	echo "-------------------------------------------"
+	echo "Installing Quarto..."
+	echo "-------------------------------------------"
+	# install quarto
+	sudo dpkg -i ~/downloads/setups/quarto_1-2-335.deb
+	
+	# reload the zshrc file
+	zsh ~/.zshrc
+	
+	echo "-------------------------------------------"
+	echo "Quarto Installed Successfully"
+	echo "-------------------------------------------"
+	quarto --version
+	
+	
+	# reload oh-my-zsh
+	zsh -i -c "omz reload"
+	
+else
+	echo "-------------------------------------------"
+	echo "Quarto has already been installed"
+	echo "-------------------------------------------"
+	quarto --version
+fi
+
+
 #p10k configure
 
 

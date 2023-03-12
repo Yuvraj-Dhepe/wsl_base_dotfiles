@@ -1,5 +1,3 @@
-# Supress message
-#POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -10,14 +8,18 @@ fi
 #Theme setup
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# source plugins #this installs all the plugins and even the theme.
+# source plugins
 source ~/.zsh_plugins.sh
+
+# Use Nix
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Supress message
 #POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -138,6 +140,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-# Use Nix
-if [ -e /home/yuvidh/.nix-profile/etc/profile.d/nix.sh ]; then . /home/yuvidh/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

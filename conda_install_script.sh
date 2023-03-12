@@ -51,9 +51,9 @@ if ! command_exists conda; then
 	conda init
 	
 	#echo "Initializing the conda environment, Refreshing the omz shell, .zshrc file and activating the base environment."	
-	echo "-------------------------------------------"
-	echo "OMZ reload"
-	echo "-------------------------------------------"
+	#echo "-------------------------------------------"
+	#echo "OMZ reload"
+	#echo "-------------------------------------------"
 	
 	echo "-------------------------------------------"
 	echo "Conda Installed successfully with version: "

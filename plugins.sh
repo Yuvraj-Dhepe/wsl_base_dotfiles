@@ -8,4 +8,4 @@ nix-env -iA nixpkgs.bat
 nix-env -iA nixpkgs.direnv
 nix-env -iA nixpkgs.zsh
 nix-env -iA nixpkgs.git
-nix-env -iA nixpkgs.oh-my-zsh
+#nix-env -iA nixpkgs.oh-my-zsh

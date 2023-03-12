@@ -88,6 +88,11 @@ if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc
 # Supress message
 #POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true' | cat - ~/.zshrc > temp && mv temp ~/.zshrc
 
+echo "-------------------------------------------"
+echo "Run the other_imp package script via after omz is installed after opening a new session "
+echo "sh $HOME/.dotfiles/other_imp_packages.sh"
+echo "-------------------------------------------"
+
 # install omz shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc 
 
